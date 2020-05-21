@@ -1,0 +1,30 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href= "{% static 'home.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+
+    <body>
+        <div class="wrapper_h1">
+            <h1>To Do List </h1>
+        </div>
+        {%for each_list in todolist %}
+        <div class="center_wrapper">
+            <div class="wrapper"> 
+                <div class="content">
+                    <span class="material-icons">done</span>
+                    <a class="title" href="{%url 'detail' each_list.pk %}">{{each_list.title}}</a>
+                </div>
+                <div class="button_wrapper">
+                    <a class="edit_button, button" href="{%url 'edit' each_list.pk%}">수정하기</a>
+                    <a class="delete_button, button" href="{%url 'delete' each_list.pk%}">삭제하기</a>
+                </div>
+            </div>
+        </div>
+        {%endfor%}
+        <div class="add_wrapper">
+            <a class="add_button" href="{%url 'new' %}">할일 추가하기</a>
+        </div>    
+    </body>
+</html>

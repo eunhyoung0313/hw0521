@@ -1,0 +1,54 @@
+body{
+    background-color: aliceblue;
+}
+.wrapper_h1{
+    display: flex;
+    justify-content: center;
+}
+h1{ width:60%;
+    display:flex;
+    justify-content: center;
+    border: 3px solid black;
+    border-radius: 5%;
+    box-shadow: 3px 3px 2px 1px gray;
+}
+.content{
+    display:flex;
+    justify-content: space-between;
+}
+.center_wrapper{
+    display:flex;
+    justify-content: center;
+    padding:20px;
+}
+.wrapper{
+    height:28px;
+    display: flex;
+    justify-content: space-between;
+    width:60%;
+    border-bottom: 3px solid black;
+}
+.button{
+    border: 1px solid lightblue;
+    background-color: lightblue;
+    border-radius: 1px;
+    height: 20px;
+}
+.add_wrapper{
+    padding: 30px;
+    display:flex;
+    justify-content: center;
+}
+.add_button{
+    background-color: darkblue;
+    color: white;
+    height: 30px;
+    width: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+

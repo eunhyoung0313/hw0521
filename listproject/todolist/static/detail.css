@@ -1,0 +1,72 @@
+body{
+    background-color: aliceblue;
+}
+
+.wrapper_h1{
+    display: flex;
+    justify-content: center;
+}
+h1{ width:60%;
+    display:flex;
+    justify-content: center;
+    border: 3px solid black;
+    border-radius: 5%;
+    box-shadow: 3px 3px 2px 1px gray;
+}
+.center{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+.element{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+
+}
+p{  width:10%;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;}
+
+.title{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 30px;
+    border: 1px solid darkblue;
+}
+
+.content{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 112px;
+    border: 1px solid darkblue;
+    margin: 5px;
+}
+.duedate{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 28px;
+    border: 1px solid darkblue;
+}
+.button{
+    margin:5px;
+    background-color: darkblue;
+    color: white;
+    height: 30px;
+    width: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 5px;
+}

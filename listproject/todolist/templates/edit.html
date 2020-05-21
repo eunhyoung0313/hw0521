@@ -1,0 +1,31 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'edit.css' %}">
+    </head>
+    <body>
+        <div class="wrapper_h1">
+            <h1>할 일을 수정해보자!</h1>
+        </div>
+        <form method="POST">
+            {%csrf_token%}
+            <div class="center">
+                <div class="title">
+                    <p>제목: </p>
+                    <input class="element_title" name="title" value="{{chosen_list.title}}">
+                </div>
+                <div class="content">
+                    <p>내용 :</p>
+                    <input class= "element_content" name="content" value="{{chosen_list.content}}">
+                </div>
+                <div class="duedate">
+                    <p>마감기한 :</p>
+                    <input class= "element_duedate" name="duedate" value="{{chosen_list.duedate}}">
+                </div>
+            </div>
+            <div class="center">
+                <button class="button" type="submit">수정하기</button>
+            </div>
+        </form>
+    </body>
+</html>

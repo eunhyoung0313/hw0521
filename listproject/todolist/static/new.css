@@ -1,0 +1,42 @@
+body{
+    background-color: aliceblue;
+}
+
+.wrapper_h1{
+    display: flex;
+    justify-content: center;
+}
+h1{ width:60%;
+    display:flex;
+    justify-content: center;
+    border: 3px solid black;
+    border-radius: 5%;
+    box-shadow: 3px 3px 2px 1px gray;
+}
+.center{
+    display:flex;
+    justify-content: center;
+}
+.input_title{
+    width: 60%;
+}
+.input_content{
+    width: 60%;
+    height: 150px;
+    margin: 5px;
+}
+.input_duedate{
+    width:60%;
+}
+.button{
+    margin:5px;
+    background-color: darkblue;
+    color: white;
+    height: 30px;
+    width: 119px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid black;
+    border-radius: 5px;
+}

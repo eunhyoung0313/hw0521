@@ -1,0 +1,27 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href= "{% static 'new.css' %}">
+    </head>
+
+    <body>
+        <form method="POST">
+            {%csrf_token%}
+            <div class="wrapper_h1">
+                <h1>할 일 추가하기</h1>
+            </div>
+            <div class="center">
+                <input class="input_title" name="title" placeholder="제목을 입력하세요">
+            </div>
+            <div class="center">
+                <input class="input_content" name="content" placeholder="내용을 입력하세요">
+            </div>
+            <div class="center">
+                <input class="input_duedate" name="duedate" placeholder="마감기한을 입력하세요(YYYYMMDD)">
+            </div>
+            <div class="center">
+                <button class="button" type="submit">제출하기</button>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,30 +1,53 @@
+{% extends 'base.html' %}
 <html>
     <head>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href= "{% static 'home.css' %}">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        {% block css %}
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href= "{% static 'home.css' %}">
+        {% endblock css %}
+   
     </head>
 
     <body>
-        <div class="wrapper_h1">
-            <h1>To Do List </h1>
-        </div>
-        {%for each_list in todolist %}
-        <div class="center_wrapper">
-            <div class="wrapper"> 
-                <div class="content">
-                    <span class="material-icons">done</span>
-                    <a class="title" href="{%url 'detail' each_list.pk %}">{{each_list.title}}</a>
-                </div>
-                <div class="button_wrapper">
-                    <a class="edit_button, button" href="{%url 'edit' each_list.pk%}">수정하기</a>
-                    <a class="delete_button, button" href="{%url 'delete' each_list.pk%}">삭제하기</a>
+        {% block content %}
+        <div class="total_wrapper">
+            <div class="wrapper_h1">
+                <h1>To Do List </h1>
+            </div>
+            {% for post in posts %}
+            <div class="center_wrapper">
+                <div class="wrapper"> 
+                    <div class="content">
+                        <span class="material-icons">done</span>
+                        <a class="title" href="{%url 'detail' post.pk %}">{{post.title}}</a>
+                    </div>
+                    <div class="button_wrapper">
+                        {% if user.is_authenticated and post.author.pk == user.pk %}
+                        <a class="edit_button, button" href="{%url 'edit' post.pk %}"><span class="material-icons">
+                            create
+                            </span></a>
+                        <a class="delete_button, button" href="{%url 'delete' post.pk %}"><span class="material-icons">
+                            delete_forever
+                            </span></a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+                <div class="wrapper_mypage">
+                    {% if user.is_authenticated %}
+                    <a class="mypage" href="{%url 'mypage' %}">my page</a>
+                    {% endif %}
+                </div>
+            <div class="add_wrapper">
+                {% if user.is_authenticated %}
+                <a class="add_button" href="{%url 'new' %}"><span class="material-icons">
+                    add_circle_outline
+                </span></a>
+            </div>   
+            {% endif %}
+        
         </div>
-        {%endfor%}
-        <div class="add_wrapper">
-            <a class="add_button" href="{%url 'new' %}">할일 추가하기</a>
-        </div>    
+    {% endblock content %}
     </body>
 </html>

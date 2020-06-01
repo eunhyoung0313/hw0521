@@ -1,34 +1,63 @@
+{% extends 'base.html' %}
 <html>
     <head>
-        {% load static %}
-        <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+        {% block css%}
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+        {% endblock css%}
     </head>
     <body>
-        <div class="wrapper_h1">
-            <h1>할 일을 자세히 보자!</h1>
+        {% block content %}
+        <div class="total_wrapper">
+            <div class="wrapper_h1">
+                <h1>What Should I Do?</h1>
+            </div>
+            <div class="center">
+                <div class="title">
+                    <p>Title</p>
+                    <div class="element">
+                        {{chosen_list.title}}
+                    </div>
+                </div>
+                <div class="content">
+                    <p>Content</p>
+                    <div class="element">
+                        {{chosen_list.content}} 
+                    </div>
+                </div>
+                <div class="duedate">
+                    <p>Duedate</p>
+                    <div class="element">
+                        {{chosen_list.duedate}}  
+                    </div>
+                </div>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="comment_wrapper">
+                        <input type="text" name="content" placeholder="댓글을 입력하세요">
+                        <button type="submit"><span class="material-icons">
+                            rate_review
+                            </span></button>
+                    </div>
+                </form>
+                <div class="comment_content">
+                    {% for comment in chosen_list.comments.all %}
+                    <div class="content-line">
+                        <li>{{comment.content}}</li>
+                        <a class="edit_button, button" href="{% url 'edit_comment' chosen_list.pk comment.pk %}"><span class="material-icons">
+                                create</span>
+                        </a>
+                        {% if comment.author.pk == user.pk %}
+                            <a href="{% url 'delete_comment' chosen_list.pk comment.pk %}"><span class="material-icons">
+                                clear
+                                </span></a>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div> 
+
         </div>
-        <div class="center">
-            <div class="title">
-                <p>제목 :</p>
-                <div class="element">
-                    {{chosen_list.title}}
-                </div>
-            </div>
-            <div class="content">
-                <p>내용 :</p>
-                <div class="element">
-                    {{chosen_list.content}} 
-                </div>
-            </div>
-            <div class="duedate">
-                <p>마감기한 :</p>
-                <div class="element">
-                    {{chosen_list.duedate}}  
-                </div>
-            </div>
-    </div> 
-        <div class="center">
-            <a class="button" href="{%url 'home' %}">홈으로</a>  
-        </div>
+        {% endblock content %}
     </body>
 </html>

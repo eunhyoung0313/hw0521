@@ -1,0 +1,37 @@
+{% load static %}
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    {% block css%}
+    {% endblock css%}
+    <title>To Do List</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-bar">
+            <ul>
+                {% if user.is_authenticated %}
+                <li><a class="nav-item">Hello, {{user.username}}!</a></li>
+                <li><a class="nav-item" href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                <li><a class="nav-item" href="{% url 'login' %}">Login</a></li>  
+                <li><a class="nav-item" href="{% url 'signup' %}">Signup</a></li>
+                {% endif %}
+                <li><a class="nav-item" href="{% url 'home' %}">HOME</a></li>
+                <li><a class="nav-item" href="{% provider_login_url 'kakao' %}">Kakao Login</a></li>
+                <li><a class="nav-item" href="{% provider_login_url 'google' %}">Google Login</a></li>
+                
+            </ul>
+        </nav>
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+</body>
+</html>

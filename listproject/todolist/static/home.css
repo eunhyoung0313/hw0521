@@ -1,16 +1,22 @@
 body{
     background-color: aliceblue;
+    font-family: Arial;
+}
+.total_wrapper{
+    width:100%;
+    display:flex;
+    flex-direction: column;
 }
 .wrapper_h1{
     display: flex;
     justify-content: center;
 }
-h1{ width:60%;
+h1{ width:100%;
     display:flex;
     justify-content: center;
-    border: 3px solid black;
-    border-radius: 5%;
-    box-shadow: 3px 3px 2px 1px gray;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color:
+
 }
 .content{
     display:flex;
@@ -26,29 +32,48 @@ h1{ width:60%;
     display: flex;
     justify-content: space-between;
     width:60%;
-    border-bottom: 3px solid black;
+    background: lightgray;
+    padding: 10px;
 }
 .button{
-    border: 1px solid lightblue;
-    background-color: lightblue;
-    border-radius: 1px;
-    height: 20px;
+    text-decoration: none;
 }
 .add_wrapper{
     padding: 30px;
     display:flex;
     justify-content: center;
 }
+.wrapper_mypage{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
 .add_button{
-    background-color: darkblue;
+    background-color: cadetblue;
+    height:25px;
+    width: 25px;
     color: white;
-    height: 30px;
-    width: 119px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 3px solid black;
-    border-radius: 5px;
+    border-radius: 10%;
+    text-decoration: none;
+}
+.mypage{
+    height: 28px;
+    width: 60%;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cadetblue;
+    color:white;
 }
 
+
+}
+.material-icons{
+    font-size:25px;
+    color: rgb(90, 86, 86);
+}
 

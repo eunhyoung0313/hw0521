@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mypage.css' %}">
+{% endblock css %}
+{% block content %}
+<div>
+    <h1>My Page</h1>
+    <div>
+        {% for post in posts%}
+        {% if user.is_authenticated and post.author.pk == user.pk %}
+        <p>{{post.title}}</p>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
